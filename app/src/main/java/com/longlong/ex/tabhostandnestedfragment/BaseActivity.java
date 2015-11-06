@@ -12,34 +12,33 @@ public abstract class BaseActivity extends FragmentActivity {
 
     private static final String TAG = "BaseActivity";
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        super.onActivityResult(requestCode, resultCode, intent);
-
-        FragmentManager fm = getSupportFragmentManager();
-
-        Log.e(TAG, "getBackStackEntryCount: " + fm.getBackStackEntryCount());
-
-        int index = requestCode >> 16;
-        if (index != 0) {
-            index--;
-            if (fm.getFragments() == null || index < 0
-                    || index >= fm.getFragments().size()) {
-                Log.w(TAG, "Activity result fragment index out of range: 0x"
-                        + Integer.toHexString(requestCode));
-                return;
-            }
-            Fragment frag = fm.getFragments().get(index);
-            if (frag == null) {
-                Log.w(TAG, "Activity result no fragment exists for index: 0x"
-                        + Integer.toHexString(requestCode));
-            } else {
-                handleResult(frag, requestCode, resultCode, intent);
-            }
-            return;
-        }
-
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+//        super.onActivityResult(requestCode, resultCode, intent);
+//
+//        FragmentManager fm = getSupportFragmentManager();
+//
+//        Log.e(TAG, "getBackStackEntryCount: " + fm.getBackStackEntryCount());
+//
+//        int index = requestCode >> 16;
+//        if (index != 0) {
+//            index--;
+//            if (fm.getFragments() == null || index < 0
+//                    || index >= fm.getFragments().size()) {
+//                Log.w(TAG, "Activity result fragment index out of range: 0x"
+//                        + Integer.toHexString(requestCode));
+//                return;
+//            }
+//            Fragment frag = fm.getFragments().get(index);
+//            if (frag == null) {
+//                Log.w(TAG, "Activity result no fragment exists for index: 0x"
+//                        + Integer.toHexString(requestCode));
+//            } else {
+//                handleResult(frag, requestCode, resultCode, intent);
+//            }
+//            return;
+//        }
+//    }
 
     /**
      *

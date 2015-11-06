@@ -37,7 +37,7 @@ public class UserFragment extends Fragment {
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivityForResult(new Intent(getActivity(), ScrollingActivity.class), 1001);
+                getParentFragment().startActivityForResult(new Intent(getActivity(), ScrollingActivity.class), 1001);
             }
         });
 
